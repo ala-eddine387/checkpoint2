@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import joblib
+import os
 
 country = st.number_input(label="country")
 year = st.number_input(label="year")
@@ -19,7 +20,8 @@ test_data = np.array([country, year, location_type, cellphone_access,
                       gender_of_respondent, relationship_with_head, marital_status, 
                       education_level, job_type ]).reshape(1,-1)
 
-model = joblib.load(r"C:\Users\ALAA\Desktop\streamlit\checkpoint2.pkl")
+model_path = os.path.join(os.path.dirname(__file__), "checkpoint2.pkl")
+model = joblib.load(model_path)
 
 if st.button("predict"):
     prediction = model.predict(test_data)
