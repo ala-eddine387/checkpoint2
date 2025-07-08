@@ -4,3 +4,4 @@ numpy
 joblib
 streamlit
 ydata-profiling
+streamlit-pandas-profiling
